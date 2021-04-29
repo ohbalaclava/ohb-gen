@@ -1,0 +1,24 @@
+{
+    "name": "khyberpass",
+    "version": "0.1.0",
+    "description": "Yet another password generator up the jacksie",
+    "scripts": {
+        "start": "npm run serve",
+        "serve": "webpack serve --mode development",
+        "build": "webpack --mode production"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "mithril": "^2.0.4",
+        "webpack": "^5.36.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.13.16",
+        "@babel/plugin-transform-react-jsx": "^7.13.12",
+        "@babel/preset-env": "^7.13.15",
+        "babel-loader": "^8.2.2",
+        "html-webpack-plugin": "^5.3.1",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2"
+    }
+}
