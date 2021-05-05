@@ -5,11 +5,30 @@ module.exports = {
     filename: 'app.js'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /\/node_modules\//,
-      use: 'babel-loader'
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /\/node_modules\//,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      }
+    ]
   },
   devServer: {
     contentBase: './dist',
