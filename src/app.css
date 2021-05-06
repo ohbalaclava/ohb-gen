@@ -19,3 +19,11 @@ input[type=number] {
   font-family: inherit;
   -webkit-text-security: none;
 }
+
+.tooltip {
+  @apply transition-opacity duration-500 delay-200 opacity-0 absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply opacity-100 z-50;
+}

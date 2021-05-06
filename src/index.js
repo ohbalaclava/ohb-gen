@@ -5,7 +5,7 @@ import model from './modules/khybermodel.js'
 
 const m = require('mithril')
 
-function KhyberPassApp() {
+function KhyberPassApp () {
   return {
     view: () => (
       <main>
@@ -39,16 +39,24 @@ function KhyberPassApp() {
                   oninput={e => model.setKeyword(e.target.value)}
                 />
                 <button
-                  class='px-1 w-6 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-100 focus:outline-none cursor-pointer'
+                  class='w-6 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
                   onclick={model.save()}
                 >
-                  <svg viewBox='0 0 486 486'>
+                  <svg class='mx-1 text-gray-500' viewBox='0 0 64 64'>
                     <g>
-                      <g>
-                        <path d='M473.7,485.75c6.8,0,12.3-5.5,12.3-12.3v-359.8c0-3.6-1.6-7-4.3-9.3L363,2.85c-0.2-0.2-0.4-0.3-0.6-0.4    c-0.3-0.2-0.5-0.4-0.8-0.6c-0.4-0.2-0.7-0.4-1.1-0.6c-0.3-0.1-0.6-0.3-0.9-0.4c-0.4-0.2-0.9-0.3-1.3-0.4c-0.3-0.1-0.6-0.2-0.9-0.2    c-0.8-0.1-1.5-0.2-2.3-0.2H12.3C5.5,0.05,0,5.55,0,12.35v461.3c0,6.8,5.5,12.3,12.3,12.3h461.4V485.75z M384.5,461.25h-283v-184.1    c0-3.7,3-6.6,6.6-6.6h269.8c3.7,0,6.6,3,6.6,6.6V461.25z M161.8,24.45h180.9v127.8c0,0.8-0.6,1.4-1.4,1.4h-178    c-0.8,0-1.4-0.7-1.4-1.4V24.45H161.8z M24.6,24.45h112.8v127.8c0,14.3,11.6,25.9,25.9,25.9h178c14.3,0,25.9-11.6,25.9-25.9V38.75    l94.2,80.6v341.9H409v-184.1c0-17.2-14-31.1-31.1-31.1H108.1c-17.2,0-31.1,14-31.1,31.1v184.2H24.6V24.45z' />
-                        <path d='M227.4,77.65h53.8v32.6c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3v-44.8c0-6.8-5.5-12.3-12.3-12.3h-66.1    c-6.8,0-12.3,5.5-12.3,12.3S220.7,77.65,227.4,77.65z' />
-                        <path d='M304.5,322.85h-123c-6.8,0-12.3,5.5-12.3,12.3s5.5,12.3,12.3,12.3h123c6.8,0,12.3-5.5,12.3-12.3    S311.3,322.85,304.5,322.85z' />
-                        <path d='M304.5,387.75h-123c-6.8,0-12.3,5.5-12.3,12.3s5.5,12.3,12.3,12.3h123c6.8,0,12.3-5.5,12.3-12.3    S311.3,387.75,304.5,387.75z' />
+                      <path d='m49 3h-42a4 4 0 0 0 -4 4v50a4 4 0 0 0 4 4h50a4 4 0 0 0 4-4v-46l-8-8z' fill='white' />
+                      <path d='m49 3v17a2.006 2.006 0 0 1 -2 2h-30a2.006 2.006 0 0 1 -2-2v-17z' fill='white' />
+                      <path d='m35 7h6v11h-6z' fill='white' />
+                      <path d='m51 31h-38a4 4 0 0 0 -4 4v26h46v-26a4 4 0 0 0 -4-4z' fill='white' />
+                      <path d='m3 56v1a4 4 0 0 0 4 4h2v-5z' fill='lightgray' />
+                      <path d='m55 5v56h2a4 4 0 0 0 4-4v-46z' fill='lightgray' />
+                      <path d='m47 56h-38v5h46v-13a8 8 0 0 1 -8 8z' fill='lightgray' />
+                      <g fill='currentColor'>
+                        <path d='m61.707 10.293-8-8a1 1 0 0 0 -.707-.293h-46a5.006 5.006 0 0 0 -5 5v50a5.006 5.006 0 0 0 5 5h50a5.006 5.006 0 0 0 5-5v-46a1 1 0 0 0 -.293-.707zm-13.707-6.293v16a1 1 0 0 1 -1 1h-30a1 1 0 0 1 -1-1v-16zm-38 56v-25a3 3 0 0 1 3-3h38a3 3 0 0 1 3 3v25zm50-3a3 3 0 0 1 -3 3h-1v-25a5.006 5.006 0 0 0 -5-5h-38a5.006 5.006 0 0 0 -5 5v25h-1a3 3 0 0 1 -3-3v-50a3 3 0 0 1 3-3h7v16a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3v-16h2.586l7.414 7.414z' />
+                        <path d='m35 19h6a1 1 0 0 0 1-1v-11a1 1 0 0 0 -1-1h-6a1 1 0 0 0 -1 1v11a1 1 0 0 0 1 1zm1-11h4v9h-4z' />
+                        <path d='m47 45h-30a1 1 0 0 0 0 2h30a1 1 0 0 0 0-2z' />
+                        <path d='m47 39h-30a1 1 0 0 0 0 2h30a1 1 0 0 0 0-2z' />
+                        <path d='m47 51h-30a1 1 0 0 0 0 2h30a1 1 0 0 0 0-2z' />
                       </g>
                     </g>
                   </svg>
@@ -111,7 +119,8 @@ function KhyberPassApp() {
                 </div>
               </fieldset>
 
-              <div class='flex items-start'>
+              <div class='flex items-start has-tooltip'>
+                <span class='tooltip rounded shadow-md py-1 px-2 text-gray-50 bg-gray-900 text-sm -mt-8'>Space-separated list of characters not to be used in the password</span>
                 <div class='mt-1 flex rounded-md shadow-sm'>
                   <label for='contains-not' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
                     Illegal characters
@@ -186,7 +195,7 @@ function KhyberPassApp() {
                     class='semi-obscured focus:ring-yellow-500 focus:border-yellow-500 bg-green-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border border-r-0 text-gray-500 text-sm'
                   />
                   <button
-                    class='w-6 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-100 focus:outline-none cursor-pointer'
+                    class='w-6 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
                     onclick={() => model.copyToClipboard()}
                   >
                     <svg
