@@ -29,7 +29,13 @@ const model = (function () {
   }
 
   const getMasterPasswordValidationClasses = () => {
-    return (_isValidPassword) ? VALID_MASTER_PASSWORD_CLASSES : INVALID_MASTER_PASSWORD_CLASSES
+    if (_data.masterPassword.length === 0) {
+      return ''
+    } else if (_isValidPassword) {
+      return VALID_MASTER_PASSWORD_CLASSES
+    } else {
+      return INVALID_MASTER_PASSWORD_CLASSES
+    }
   }
 
   const getKeyword = () => _data.keyword
@@ -58,7 +64,7 @@ const model = (function () {
 
   const incrementPasswordLength = () => { _data.passwordLength++; _updatePassword() }
 
-  const decrementPasswordLength = () => {_data.passwordLength--; _updatePassword() }
+  const decrementPasswordLength = () => { _data.passwordLength--; _updatePassword() }
 
   const getPasswordLength = () => _data.passwordLength
 
