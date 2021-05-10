@@ -9,6 +9,61 @@ class VerificationError extends Error {
 }
 
 const PasswordGenerator = (function () {
+  let _data
+
+  const _createGenerator = (getHashable, hash, symbolString, postProcess) => {
+    function _wordArrayToString (wordArray) {
+      return String.fromCharCode(...wordArray.words.flatMap((word) => {
+        const bytes = []
+        bytes.push(word >>> 24)
+        bytes.push((word >>> 16) & 0xff)
+        bytes.push((word >>> 8) & 0xff)
+        bytes.push(word & 0xff)
+        return bytes
+      })).slice(0, wordArray.sigBytes)
+    }
+
+    function isLetter (character) {
+      return (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')
+    }
+
+    function isDigit (character) {
+      return character >= '0' && character <= '9'
+    }
+
+    function isValidSymbol (character) {
+      return symbolString.indexOf(character) >= 0
+    }
+
+    function isIllegalCharacter (character) {
+      return _data.illegalChars.indexOf(character) >= 0
+    }
+
+    function isValidCharacter (character) {
+      return (isLetter(character) || (_data.includeNumbers && isDigit(character)) || (_data.includeSymbols && isValidSymbol(character))) && !isIllegalCharacter(character)
+    }
+
+    function filter (value) {
+      return [...value].filter(isValidCharacter).join('')
+    }
+
+    return (data) => {
+      _data = data
+
+      _verifyData(_data)
+
+      let hashable = ''
+      let hashed = ''
+      while (hashed.length < _data.passwordLength) {
+        hashable += getHashable(_data)
+        hashed += filter(_wordArrayToString(hash(hashable)))
+      }
+      hashed = hashed.slice(0, _data.passwordLength)
+
+      return postProcess ? postProcess(hashed) : hashed
+    }
+  }
+
   const newData = () => {
     return {
       masterPassword: '',
@@ -28,70 +83,39 @@ const PasswordGenerator = (function () {
     }
   }
 
-  function _wordArrayToString (wordArray) {
-    return String.fromCharCode(...wordArray.words.flatMap((word) => {
-      const bytes = []
-      bytes.push(word >>> 24)
-      bytes.push((word >>> 16) & 0xff)
-      bytes.push((word >>> 8) & 0xff)
-      bytes.push(word & 0xff)
-      return bytes
-    })).slice(0, wordArray.sigBytes)
-  }
-
   const _verifyData = (data) => {
     _assert(data !== undefined, 'password data is undefined')
     _assert(data.masterPassword, 'the master password is empty')
     _assert(data.keyword, 'the keyword is empty')
   }
 
-  const _generateLegacyPassword = (data) => {
+  const _generateLegacyPassword = (() => {
     function hash (value) {
-      return _wordArrayToString(MD5(value))
+      return MD5(value)
     }
 
-    function getHashable (previousHashable) {
-      return previousHashable + data.masterPassword + 'pemisah' + data.keyword
+    function getHashable (data) {
+      return data.masterPassword + 'pemisah' + data.keyword
     }
 
-    function isLetter (character) {
-      return (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')
+    const SymbolString = '.,?!_/@#$%&*'
+
+    return _createGenerator(getHashable, hash, SymbolString)
+  })()
+
+  const _generateStandardPassword = (() => {
+    function hash (value) {
+      return SHA256(value)
     }
 
-    function isDigit (character) {
-      return character >= '0' && character <= '9'
+    function getHashable (data) {
+      return 'saltydog' + data.masterPassword + data.keyword
     }
 
-    function isValidSymbol (character) {
-      return '.,?!_/@#$%&*'.indexOf(character) >= 0
-    }
+    const SymbolString = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
-    function isIllegalCharacter (character) {
-      return data.illegalChars.indexOf(character) >= 0
-    }
-
-    function isValidCharacter (character) {
-      return (isLetter(character) || (data.includeNumbers && isDigit(character)) || (data.includeSymbols && isValidSymbol(character))) && !isIllegalCharacter(character)
-    }
-
-    function filter (value) {
-      return [...value].filter(isValidCharacter).join('')
-    }
-
-    _verifyData(data)
-
-    let hashable = ''
-    let hashed = ''
-    while (hashed.length < data.passwordLength) {
-      hashable = getHashable(hashable)
-      hashed += filter(hash(hashable))
-    }
-    return hashed.slice(0, data.passwordLength)
-  }
-
-  const _generateStandardPassword = (data) => {
-
-  }
+    return _createGenerator(getHashable, hash, SymbolString)
+  })()
 
   const generatePassword = (data) => (data.legacy) ? _generateLegacyPassword(data) : _generateStandardPassword(data)
 
