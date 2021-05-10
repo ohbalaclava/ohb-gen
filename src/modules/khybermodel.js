@@ -1,11 +1,11 @@
-import { PasswordGenerator, VerificationError } from './passwordgenerator.js'
+import { PasswordGenerator } from './passwordgenerator.js'
 import { PasswordValidator, ValidationError } from './passwordvalidator.js'
 
 const model = (function () {
   const VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
   const INVALID_MASTER_PASSWORD_CLASSES = 'bg-red-200'
 
-  const _data = PasswordGenerator.newData()
+  const _data = new PasswordGenerator.PasswordMetaData()
   let _generatedPassword = ''
   let _isValidPassword = false
   let _validationError = ''
@@ -76,7 +76,7 @@ const model = (function () {
     try {
       _generatedPassword = PasswordGenerator.generatePassword(_data)
     } catch (error) {
-      if (!(error instanceof VerificationError)) {
+      if (!(error instanceof PasswordGenerator.VerificationError)) {
         console.log(error)
       }
     }
