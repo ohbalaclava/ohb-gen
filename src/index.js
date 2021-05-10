@@ -18,10 +18,10 @@ function KhyberPassApp () {
                   Master Password
                 </label>
                 <input
-                  type='password'
+                  type='text'
                   name='master-password'
                   id='master-password'
-                  class={`${model.getMasterPasswordValidationClasses()} focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
+                  class={`${model.getMasterPasswordValidationClasses()} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
                   oninput={e => model.setMasterPassword(e.target.value)}
                 />
               </div>
