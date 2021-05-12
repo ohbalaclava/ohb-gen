@@ -2,6 +2,7 @@ import 'tailwindcss/tailwind.css'
 import 'text-security/text-security.css'
 import './app.css'
 import model from './modules/khybermodel'
+import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 
 const m = require('mithril')
 
@@ -13,18 +14,11 @@ function KhyberPassApp () {
           <div class='w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto'>
             <h1 class='mb-5 text-xl text-yellow-900 font-thin'>KhyberPass</h1>
             <div class='space-y-4'>
-              <div class='mt-1 flex rounded-md shadow-sm'>
-                <label for='master-password' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
-                  Master Password
-                </label>
-                <input
-                  type='text'
-                  name='master-password'
-                  id='master-password'
-                  class={`${model.getMasterPasswordValidationClasses()} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
-                  oninput={e => model.setMasterPassword(e.target.value)}
-                />
-              </div>
+              <MasterPasswordComponent
+                empty={model.getMasterPassword().length === 0}
+                valid={model.isMasterPasswordValid()}
+                setFunction={e => model.setMasterPassword(e.target.value)}
+              />
 
               <div class='mt-1 flex rounded-md shadow-sm'>
                 <label for='keyword' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>

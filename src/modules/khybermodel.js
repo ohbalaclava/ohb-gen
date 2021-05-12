@@ -38,6 +38,10 @@ const model = (function () {
     }
   }
 
+  const isMasterPasswordValid = () => {
+    return _isValidPassword
+  }
+
   const getKeyword = () => _data.keyword
 
   const setKeyword = keyword => { _data.keyword = keyword; _updatePassword() }
@@ -96,6 +100,7 @@ const model = (function () {
     getMasterPassword,
     setMasterPassword,
     getMasterPasswordValidationClasses,
+    isMasterPasswordValid,
     getKeyword,
     setKeyword,
     getLegacy,
