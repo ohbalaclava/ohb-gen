@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css'
 import 'text-security/text-security.css'
 import './app.css'
-import model from './modules/khybermodel.js'
+import model from './modules/khybermodel'
 
 const m = require('mithril')
 
@@ -35,11 +35,11 @@ function KhyberPassApp () {
                   autocomplete='off'
                   list='keywords'
                   name='keyword' id='keyword'
-                  class='focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none sm:text-sm border-gray-300'
+                  class='z-10 focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none sm:text-sm border-gray-300'
                   oninput={e => model.setKeyword(e.target.value)}
                 />
                 <button
-                  class='w-6 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
+                  class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
                   onclick={model.save()}
                 >
                   <svg class='mx-1 text-gray-500' viewBox='0 0 64 64'>
@@ -193,10 +193,10 @@ function KhyberPassApp () {
                     name='generated-password'
                     id='generated-password'
                     value={model.getGeneratedPassword()}
-                    class='semi-obscured focus:ring-yellow-500 focus:border-yellow-500 bg-green-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border border-r-0 text-gray-500 text-sm'
+                    class='semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-green-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'
                   />
                   <button
-                    class='w-6 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
+                    class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
                     onclick={() => model.copyToClipboard()}
                   >
                     <svg
