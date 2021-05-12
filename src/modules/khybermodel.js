@@ -4,11 +4,12 @@ import { PasswordValidator, ValidationError } from './passwordvalidator'
 const model = (function () {
   const VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
   const INVALID_MASTER_PASSWORD_CLASSES = 'bg-red-200'
+  const VALIDATION_SUCCESS_HINT = 'password is acceptable'
 
   const _data = new PasswordGenerator.PasswordMetaData()
   let _generatedPassword = ''
   let _isValidPassword = false
-  let _validationError = ''
+  let _validationHint = ''
 
   const getMasterPassword = () => _data.masterPassword
 
@@ -17,11 +18,12 @@ const model = (function () {
     try {
       PasswordValidator.validate(_data.masterPassword)
       _isValidPassword = true
+      _validationHint = VALIDATION_SUCCESS_HINT
       _generatePassword()
     } catch (error) {
       _isValidPassword = false
       if (error instanceof ValidationError) {
-        _validationError = error
+        _validationHint = error.message
       } else {
         throw error
       }
@@ -38,9 +40,9 @@ const model = (function () {
     }
   }
 
-  const isMasterPasswordValid = () => {
-    return _isValidPassword
-  }
+  const isMasterPasswordValid = () => _isValidPassword
+
+  const getValidationHint = () => _validationHint
 
   const getKeyword = () => _data.keyword
 
@@ -101,6 +103,7 @@ const model = (function () {
     setMasterPassword,
     getMasterPasswordValidationClasses,
     isMasterPasswordValid,
+    getValidationHint,
     getKeyword,
     setKeyword,
     getLegacy,

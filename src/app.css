@@ -20,10 +20,14 @@ input[type=number] {
   -webkit-text-security: none;
 }
 
-.tooltip {
-  @apply transition-opacity duration-500 delay-200 opacity-0 absolute;
+.guide {
+  @apply hidden;
 }
 
-.has-tooltip:hover .tooltip {
-  @apply opacity-100 z-50;
+.has-guide:focus-within > .guide {
+  @apply block mt-1;
+}
+
+.has-guide:focus-within {
+  @apply border-yellow-500 rounded-md border border-dashed p-2;
 }

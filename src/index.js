@@ -17,6 +17,7 @@ function KhyberPassApp () {
               <MasterPasswordComponent
                 empty={model.getMasterPassword().length === 0}
                 valid={model.isMasterPasswordValid()}
+                validationHint={model.getValidationHint()}
                 setFunction={e => model.setMasterPassword(e.target.value)}
               />
 
@@ -113,8 +114,7 @@ function KhyberPassApp () {
                 </div>
               </fieldset>
 
-              <div class='flex items-start has-tooltip'>
-                <span class='tooltip rounded shadow-md py-1 px-2 w-80 text-gray-50 bg-gray-600 text-sm -mt-12'>If there are any characters the password must not contain then list them here</span>
+              <div class='has-guide'>
                 <div class='mt-1 flex rounded-md shadow-sm'>
                   <label for='contains-not' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
                     Illegal characters
@@ -127,6 +127,9 @@ function KhyberPassApp () {
                     class='focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300'
                     oninput={e => model.setIllegalCharacters(e.target.value)}
                   />
+                </div>
+                <div class='guide text-gray-500 text-sm'>
+                  If there are any characters the password must not contain then list them here
                 </div>
               </div>
 
