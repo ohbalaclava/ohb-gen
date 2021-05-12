@@ -1,5 +1,5 @@
-import { PasswordGenerator } from './passwordgenerator.js'
-import { PasswordValidator, ValidationError } from './passwordvalidator.js'
+import { PasswordGenerator } from './passwordgenerator'
+import { PasswordValidator, ValidationError } from './passwordvalidator'
 
 const model = (function () {
   const VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
