@@ -79,7 +79,7 @@ const _createGenerator = (getHashable, hash, symbolString, postProcess) => {
 function PasswordMetaData () {
   this.masterPassword = ''
   this.keyword = ''
-  this.legacy = true
+  this.legacy = false
   this.includeNumbers = true
   this.includeSymbols = true
   this.illegalChars = ''
