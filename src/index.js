@@ -4,6 +4,7 @@ import './app.css'
 import model from './modules/khybermodel'
 import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
+import { LegacyComponent } from './modules/LegacyComponent'
 
 const m = require('mithril')
 
@@ -16,26 +17,9 @@ function KhyberPassApp () {
             <h1 class='mb-5 text-xl text-yellow-900 font-thin'>KhyberPass</h1>
             <div class='space-y-4'>
               <KeywordComponent
-                setFunction={e => model.setKeyword(e.target.value)}
+                setter={e => model.setKeyword(e.target.value)}
                 saveFunction={model.save()}
               />
-
-              <div class='mt-2 flex items-start'>
-                <div class='flex items-center h-5'>
-                  <input
-                    id='legacy'
-                    name='legacy'
-                    type='checkbox'
-                    class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
-                    checked={model.getLegacy()}
-                    oninput={e => model.setLegacy(e.target.checked)}
-                  />
-                </div>
-                <div class='ml-3 text-sm'>
-                  <label for='legacy' class='font-medium text-gray-700'>legacy</label>
-                  <p class='text-gray-500'>Use the Infinite Password method to generate the password. <em>Not recommended.</em></p>
-                </div>
-              </div>
 
               <fieldset>
                 <legend class='text-base font-medium text-gray-900'>Include</legend>
@@ -138,13 +122,18 @@ function KhyberPassApp () {
                 />
               </div>
 
+              <LegacyComponent
+                setter={e => model.setLegacy(e.target.checked)}
+                checked={model.getLegacy()}
+              />
+
               <hr class='w-full' />
 
               <MasterPasswordComponent
                 empty={model.getMasterPassword().length === 0}
                 valid={model.isMasterPasswordValid()}
                 validationHint={model.getValidationHint()}
-                setFunction={e => model.setMasterPassword(e.target.value)}
+                setter={e => model.setMasterPassword(e.target.value)}
               />
 
               <div>
