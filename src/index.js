@@ -73,7 +73,7 @@ function KhyberPassApp () {
                     oninput={e => model.setIllegalCharacters(e.target.value)}
                   />
                 </div>
-                <div class='guide text-gray-500 text-sm'>
+                <div class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
                   If there are any characters the password must not contain then list them here
                 </div>
               </div>
@@ -147,7 +147,7 @@ function KhyberPassApp () {
                     name='generated-password'
                     id='generated-password'
                     value={model.getGeneratedPassword()}
-                    class='semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-green-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'
+                    class='semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'
                   />
                   <button
                     class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
