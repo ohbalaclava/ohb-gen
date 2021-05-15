@@ -22,6 +22,7 @@ const model = (function () {
       _generatePassword()
     } catch (error) {
       _isValidPassword = false
+      _generatedPassword = ''
       if (error instanceof ValidationError) {
         _validationHint = error.message
       } else {
@@ -82,6 +83,7 @@ const model = (function () {
     try {
       _generatedPassword = PasswordGenerator.generatePassword(_data)
     } catch (error) {
+      _generatedPassword = ''
       if (!(error instanceof PasswordGenerator.VerificationError)) {
         console.log(error)
       }
