@@ -10,15 +10,13 @@ class VerificationError extends Error {
 }
 
 const _createGenerator = (getHashable, hash, symbolString, postProcess) => {
-  let _metadata
-
-  const _assert = (booleanValue, message) => {
+  function _assert (booleanValue, message) {
     if (!booleanValue) {
       throw new VerificationError(message)
     }
   }
 
-  const _verifyMetaData = (metadata) => {
+  function _verifyMetaData (metadata) {
     _assert(metadata !== undefined, 'password metadata is undefined')
     _assert(metadata.masterPassword, 'the master password is empty')
     _assert(metadata.keyword, 'the keyword is empty')
@@ -35,44 +33,38 @@ const _createGenerator = (getHashable, hash, symbolString, postProcess) => {
     })).slice(0, wordArray.sigBytes)
   }
 
-  function isLetter (character) {
-    return (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z')
+  function _getLegalCharactersFilter (metadata) {
+    let legalCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    if (metadata.includeNumbers) {
+      legalCharacters += '0123456789'
+    }
+    if (metadata.includeSymbols) {
+      legalCharacters += symbolString
+    }
+    if (metadata.illegalChars) {
+      legalCharacters = legalCharacters.replace(new RegExp(`[${metadata.illegalChars}]`, 'g'), '')
+    }
+    _assert(legalCharacters.length > 0, 'there are no legal characters available to generate a password')
+
+    return (value) => legalCharacters.indexOf(value) >= 0
   }
 
-  function isDigit (character) {
-    return character >= '0' && character <= '9'
-  }
-
-  function isValidSymbol (character) {
-    return symbolString.indexOf(character) >= 0
-  }
-
-  function isIllegalCharacter (character) {
-    return _metadata.illegalChars.indexOf(character) >= 0
-  }
-
-  function isValidCharacter (character) {
-    return (isLetter(character) || (_metadata.includeNumbers && isDigit(character)) || (_metadata.includeSymbols && isValidSymbol(character))) && !isIllegalCharacter(character)
-  }
-
-  function filter (value) {
-    return [...value].filter(isValidCharacter).join('')
+  function _filter (value, isLegalCharacter) {
+    return [...value].filter(isLegalCharacter).join('')
   }
 
   return (metadata) => {
-    _metadata = metadata
-
-    _verifyMetaData(_metadata)
+    _verifyMetaData(metadata)
 
     let hashable = ''
     let hashed = ''
-    while (hashed.length < _metadata.passwordLength) {
-      hashable += getHashable(_metadata)
-      hashed += filter(_wordArrayToString(hash(hashable)))
+    while (hashed.length < metadata.passwordLength) {
+      hashable += getHashable(metadata)
+      hashed += _filter(_wordArrayToString(hash(hashable)), _getLegalCharactersFilter(metadata))
     }
-    hashed = hashed.slice(0, _metadata.passwordLength)
+    hashed = hashed.slice(0, metadata.passwordLength)
 
-    return postProcess ? postProcess(hashed, _metadata) : hashed
+    return postProcess ? postProcess(hashed, metadata) : hashed
   }
 }
 
