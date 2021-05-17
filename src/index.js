@@ -9,6 +9,7 @@ import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent
 import { NotesComponent } from './modules/NotesComponent'
 import { LengthComponent } from './modules/LengthComponent'
 import { IllegalCharactersComponent } from './modules/IllegalCharactersComponent'
+import { IncludeCharactersComponent } from './modules/IncludeCharactersComponent'
 
 const m = require('mithril')
 
@@ -22,46 +23,15 @@ function KhyberPassApp () {
             <div class='space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save()} />
 
-              <fieldset>
-                <legend class='text-base font-medium text-gray-900'>Include</legend>
-                <div class='ml-4 mt-2 space-y-4'>
-                  <div class='flex items-start'>
-                    <div class='flex items-center h-5'>
-                      <input
-                        id='numbers'
-                        name='numbers'
-                        type='checkbox'
-                        class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
-                        checked={model.getIncludeNumbers()}
-                        oninput={e => model.setIncludeNumbers(e.target.checked)}
-                      />
-                    </div>
-                    <div class='ml-3 text-sm'>
-                      <label for='numbers' class='font-medium text-gray-700'>numbers</label>
-                      <p class='text-gray-500'>The generated password will contain at least one number.</p>
-                    </div>
-                  </div>
-                  <div class='flex items-start'>
-                    <div class='flex items-center h-5'>
-                      <input
-                        id='symbols'
-                        name='symbols'
-                        type='checkbox'
-                        class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
-                        checked={model.getIncludeSymbols()}
-                        oninput={e => model.setIncludeSymbols(e.target.checked)}
-                      />
-                    </div>
-                    <div class='ml-3 text-sm'>
-                      <label for='symbols' class='font-medium text-gray-700'>symbols</label>
-                      <p class='text-gray-500'>The generated password will contain at least one symbol.</p>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
+              <IncludeCharactersComponent
+                includeNumbers={model.getIncludeNumbers()}
+                includeNumbersSetter={model.setIncludeNumbers}
+                includeSymbols={model.getIncludeSymbols()}
+                includeSymbolsSetter={model.setIncludeSymbols}
+              />
 
               <IllegalCharactersComponent setter={model.setIllegalCharacters} />
-              
+
               <LengthComponent setter={model.setPasswordLength} />
 
               <NotesComponent setter={model.setNotes} />
