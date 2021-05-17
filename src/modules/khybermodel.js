@@ -2,9 +2,9 @@ import { PasswordGenerator } from './passwordgenerator'
 import { PasswordValidator, ValidationError } from './passwordvalidator'
 
 const model = (function () {
-  const VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
-  const INVALID_MASTER_PASSWORD_CLASSES = 'bg-red-200'
-  const VALIDATION_SUCCESS_HINT = 'password is acceptable'
+  const _VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
+  const _INVALID_MASTER_PASSWORD_CLASSES = 'bg-red-200'
+  const _VALIDATION_SUCCESS_HINT = 'password is acceptable'
 
   const _data = new PasswordGenerator.PasswordMetaData()
   let _generatedPassword = ''
@@ -18,7 +18,7 @@ const model = (function () {
     try {
       PasswordValidator.validate(_data.masterPassword)
       _isValidPassword = true
-      _validationHint = VALIDATION_SUCCESS_HINT
+      _validationHint = _VALIDATION_SUCCESS_HINT
       _generatePassword()
     } catch (error) {
       _isValidPassword = false
@@ -35,9 +35,9 @@ const model = (function () {
     if (_data.masterPassword.length === 0) {
       return ''
     } else if (_isValidPassword) {
-      return VALID_MASTER_PASSWORD_CLASSES
+      return _VALID_MASTER_PASSWORD_CLASSES
     } else {
-      return INVALID_MASTER_PASSWORD_CLASSES
+      return _INVALID_MASTER_PASSWORD_CLASSES
     }
   }
 
@@ -69,9 +69,9 @@ const model = (function () {
 
   const setIllegalCharacters = illegalChars => { _data.illegalChars = illegalChars; _updatePassword() }
 
-  const incrementPasswordLength = () => { _data.passwordLength++; _updatePassword() }
+  const incrementPasswordLength = () => setPasswordLength(_data.passwordLength + 1)
 
-  const decrementPasswordLength = () => { _data.passwordLength--; _updatePassword() }
+  const decrementPasswordLength = () => setPasswordLength(_data.passwordLength - 1)
 
   const getPasswordLength = () => _data.passwordLength
 
