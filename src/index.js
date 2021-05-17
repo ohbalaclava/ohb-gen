@@ -21,7 +21,7 @@ function KhyberPassApp () {
           <div class='w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto'>
             <h1 class='mb-5 text-xl text-yellow-900 font-thin'>KhyberPass</h1>
             <div class='space-y-4'>
-              <KeywordComponent setter={model.setKeyword} saveFunction={model.save()} />
+              <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
               <IncludeCharactersComponent
                 includeNumbers={model.getIncludeNumbers()}
@@ -47,7 +47,7 @@ function KhyberPassApp () {
                 setter={model.setMasterPassword}
               />
 
-              <GeneratedPasswordComponent getter={model.getGeneratedPassword()} copyFunction={() => model.copyToClipboard()} />
+              <GeneratedPasswordComponent value={model.getGeneratedPassword()} copyFunction={model.copyToClipboard} />
             </div>
           </div>
         </div>

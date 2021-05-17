@@ -19,7 +19,7 @@ function KeywordComponent (initialVnode) {
             />
             <button
               class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
-              onclick={vnode.attrs.saveFunction}
+              onclick={e => vnode.attrs.saveFunction()}
             >
               <svg class='mx-1 text-gray-500' viewBox='0 0 64 64'>
                 <g>

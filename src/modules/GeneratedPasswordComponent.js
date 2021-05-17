@@ -10,11 +10,11 @@ function GeneratedPasswordComponent (initialVnode) {
           </label>
           <div class='mt-1 flex rounded-md shadow-sm'>
             <div id='generated-password' class='select-none semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'>
-              {vnode.attrs.getter}
+              {vnode.attrs.value}
             </div>
             <button
               class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
-              onclick={vnode.attrs.copyFunction}
+              onclick={e => vnode.attrs.copyFunction}
             >
               <svg
                 viewBox='0 0 29 39'
