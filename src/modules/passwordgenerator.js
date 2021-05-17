@@ -18,8 +18,9 @@ const _createGenerator = (getHashable, hash, symbolString, postProcess) => {
 
   function _verifyMetaData (metadata) {
     _assert(metadata !== undefined, 'password metadata is undefined')
-    _assert(metadata.masterPassword, 'the master password is empty')
-    _assert(metadata.keyword, 'the keyword is empty')
+    _assert(metadata.masterPassword, 'the master password must not be empty')
+    _assert(metadata.keyword, 'the keyword must not be empty')
+    _assert(metadata.passwordLength > 0, 'the requested password length must be greater than 0')
   }
 
   function _wordArrayToString (wordArray) {
