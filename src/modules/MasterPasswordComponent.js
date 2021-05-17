@@ -65,7 +65,7 @@ function MasterPasswordComponent (initialVnode) {
           </div>
           <div class='guide justify-start mt-1 mx-2 p-1'>
             <ValidationMessage empty={vnode.attrs.empty} valid={vnode.attrs.valid} validationHint={vnode.attrs.validationHint} />
-            <div class='text-gray-500 text-sm'>
+            <div tabindex='0' class='text-gray-500 text-sm'>
               Your master password must contain at least one lowercase letter, one uppercase letter, one number and one symbol
             </div>
           </div>

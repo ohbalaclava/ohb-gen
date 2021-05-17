@@ -76,7 +76,7 @@ function KhyberPassApp () {
                     oninput={e => model.setIllegalCharacters(e.target.value)}
                   />
                 </div>
-                <div class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
+                <div tabindex='0' class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
                   If there are any characters the password must not contain then list them here
                 </div>
               </div>

@@ -17,7 +17,7 @@ function NotesComponent (initialVnode) {
               oninput={e => vnode.attrs.setter(e.target.value)}
             />
           </div>
-          <div class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
+          <div tabindex='0' class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
             Any notes or information you wish to save for this app/site, for example a username
           </div>
         </div>
