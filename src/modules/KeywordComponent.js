@@ -15,7 +15,7 @@ function KeywordComponent (initialVnode) {
               list='keywords'
               name='keyword' id='keyword'
               class='z-10 focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none sm:text-sm border-gray-300'
-              oninput={vnode.attrs.setter}
+              oninput={e => vnode.attrs.setter(e.target.value)}
             />
             <button
               class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'

@@ -60,7 +60,7 @@ function MasterPasswordComponent (initialVnode) {
               name='master-password'
               id='master-password'
               class={`${classes(vnode.attrs.empty, vnode.attrs.valid)} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
-              oninput={vnode.attrs.setter}
+              oninput={e => vnode.attrs.setter(e.target.value)}
             />
           </div>
           <div class='guide justify-start mt-1 mx-2 p-1'>

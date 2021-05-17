@@ -20,7 +20,7 @@ function KhyberPassApp () {
             <h1 class='mb-5 text-xl text-yellow-900 font-thin'>KhyberPass</h1>
             <div class='space-y-4'>
               <KeywordComponent
-                setter={e => model.setKeyword(e.target.value)}
+                setter={model.setKeyword}
                 saveFunction={model.save()}
               />
 
@@ -83,10 +83,10 @@ function KhyberPassApp () {
 
               <LengthComponent setter={model.setPasswordLength} />
 
-              <NotesComponent setter={e => model.setNotes(e.target.value)} />
+              <NotesComponent setter={model.setNotes} />
 
               <LegacyComponent
-                setter={e => model.setLegacy(e.target.checked)}
+                setter={model.setLegacy}
                 checked={model.getLegacy()}
               />
 
@@ -96,7 +96,7 @@ function KhyberPassApp () {
                 empty={model.getMasterPassword().length === 0}
                 valid={model.isMasterPasswordValid()}
                 validationHint={model.getValidationHint()}
-                setter={e => model.setMasterPassword(e.target.value)}
+                setter={model.setMasterPassword}
               />
 
               <GeneratedPasswordComponent

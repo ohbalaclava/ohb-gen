@@ -20,7 +20,7 @@ function LegacyComponent (initialVnode) {
                   type='checkbox'
                   class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
                   checked={vnode.attrs.checked}
-                  oninput={vnode.attrs.setter}
+                  oninput={e => vnode.attrs.setter(e.target.value)}
                 />
               </div>
               <div class='ml-3 text-sm'>
