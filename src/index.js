@@ -6,6 +6,8 @@ import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
 import { LegacyComponent } from './modules/LegacyComponent'
 import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent'
+import { NotesComponent } from './modules/NotesComponent'
+import { LengthComponent } from './modules/LengthComponent'
 
 const m = require('mithril')
 
@@ -79,49 +81,9 @@ function KhyberPassApp () {
                 </div>
               </div>
 
-              <div>
-                <label for='length' class='text-base font-medium text-gray-900'>
-                  Length
-                </label>
-                <div class='flex flex-row mt-2 h-10 w-32 rounded-md relative'>
-                  <button
-                    class='z-0 font-semibold inline-flex items-center rounded-l-md border border-r-0 h-full w-20 border-gray-300 hover:bg-gray-100 text-gray-500 bg-gray-200 text-sm focus:outline-none cursor-pointer'
-                    onclick={() => model.decrementPasswordLength()}
-                  >
-                    <span class='m-auto'>-</span>
-                  </button>
-                  <input
-                    type='number'
-                    id='length'
-                    name='length'
-                    min='8'
-                    max='64'
-                    value={model.getPasswordLength()}
-                    oninput={e => model.setPasswordLength(e.target.value)}
-                    step='1'
-                    class='z-10 text-center w-16 focus:ring-yellow-500 focus:border-yellow-500 border-gray-300 text-xs md:text-base flex items-center justify-center cursor-default'
-                  />
-                  <button
-                    class='z-0 font-semibold inline-flex items-center rounded-r-md border border-l-0 h-full w-20 border-gray-300 hover:bg-gray-100 text-gray-500 bg-gray-200 text-sm focus:outline-none cursor-pointer'
-                    onclick={() => model.incrementPasswordLength()}
-                  >
-                    <span class='m-auto'>+</span>
-                  </button>
-                </div>
-              </div>
+              <LengthComponent setter={model.setPasswordLength} />
 
-              <div class='mt-1 flex rounded-md shadow-sm'>
-                <label for='keyword' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
-                  Notes
-                </label>
-                <textarea
-                  id='notes'
-                  name='notes'
-                  rows='3'
-                  class='shadow-sm focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300'
-                  oninput={e => model.setNotes(e.target.value)}
-                />
-              </div>
+              <NotesComponent setter={e => model.setNotes(e.target.value)} />
 
               <LegacyComponent
                 setter={e => model.setLegacy(e.target.checked)}
