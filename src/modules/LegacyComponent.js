@@ -25,7 +25,7 @@ function LegacyComponent (initialVnode) {
               </div>
               <div class='ml-3 text-sm'>
                 <label for='legacy' class='font-medium text-gray-700'>legacy</label>
-                <p class='text-gray-500'>Use the Infinite Password method to generate the password. <em>Not recommended.</em></p>
+                <p class='text-gray-500'>For users of Infinite Password Generator only. Use the IPG algorithm to generate the password.</p>
               </div>
             </div>
           )
