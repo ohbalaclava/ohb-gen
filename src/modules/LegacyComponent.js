@@ -39,7 +39,7 @@ function LegacyComponent (initialVnode) {
       return (
         <div class='mt-2'>
           <CheckboxComponent checked={vnode.attrs.checked} setter={vnode.attrs.setter} />
-          <button class='w-full transition-colors duration-500 bg-gray-50 hover:bg-gray-100 focus:outline-none cursor-pointer' onclick={toggleVisible}>{(visible) ? '\u2303' : '\u2304'}</button>
+          <button class='w-full transition-colors duration-500 bg-gray-100 hover:bg-gray-200 border-2 border-gray-200 focus:outline-none cursor-pointer' onclick={toggleVisible}>{(visible) ? '\u2303' : '\u2304'}</button>
         </div>
       )
     }
