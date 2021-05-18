@@ -1,15 +1,17 @@
 import { PasswordGenerator } from './passwordgenerator'
 import { PasswordValidator, ValidationError } from './passwordvalidator'
 
+const m = require('mithril')
+
 const model = (function () {
-  const _VALID_MASTER_PASSWORD_CLASSES = 'bg-green-200'
-  const _INVALID_MASTER_PASSWORD_CLASSES = 'bg-red-200'
-  const _VALIDATION_SUCCESS_HINT = 'password is acceptable'
+  const _VALIDATION_SUCCESS_HINT = 'password is good'
+  const _PASSWORD_EXPIRY_TIME = 120000 /* 2 minutes */
 
   const _data = new PasswordGenerator.PasswordMetaData()
   let _generatedPassword = ''
   let _isValidPassword = false
   let _validationHint = ''
+  let _passwordExpiryTimeoutID = null
 
   const getMasterPassword = () => _data.masterPassword
 
@@ -23,21 +25,12 @@ const model = (function () {
     } catch (error) {
       _isValidPassword = false
       _generatedPassword = ''
+      _clearPasswordExpiryTimeout()
       if (error instanceof ValidationError) {
         _validationHint = error.message
       } else {
         throw error
       }
-    }
-  }
-
-  const getMasterPasswordValidationClasses = () => {
-    if (_data.masterPassword.length === 0) {
-      return ''
-    } else if (_isValidPassword) {
-      return _VALID_MASTER_PASSWORD_CLASSES
-    } else {
-      return _INVALID_MASTER_PASSWORD_CLASSES
     }
   }
 
@@ -82,6 +75,7 @@ const model = (function () {
   const _generatePassword = () => {
     try {
       _generatedPassword = PasswordGenerator.generatePassword(_data)
+      _resetPasswordExpiryTimeout()
     } catch (error) {
       _generatedPassword = ''
       if (!(error instanceof PasswordGenerator.VerificationError)) {
@@ -90,20 +84,30 @@ const model = (function () {
     }
   }
 
-  const _updatePassword = () => _isValidPassword && _generatePassword()
+  const _clearPasswords = () => {
+    setMasterPassword('')
+    _passwordExpiryTimeoutID = null
+    m.redraw()
+  }
 
-  const copyToClipboard = async () => {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      await navigator.clipboard.writeText(_generatedPassword)
+  const _clearPasswordExpiryTimeout = async () => {
+    if (_passwordExpiryTimeoutID) {
+      clearTimeout(_passwordExpiryTimeoutID)
     }
   }
+
+  const _resetPasswordExpiryTimeout = () => {
+    _clearPasswordExpiryTimeout()
+    _passwordExpiryTimeoutID = setTimeout(_clearPasswords, _PASSWORD_EXPIRY_TIME)
+  }
+
+  const _updatePassword = () => _isValidPassword && _generatePassword()
 
   const save = () => {}
 
   return {
     getMasterPassword,
     setMasterPassword,
-    getMasterPasswordValidationClasses,
     isMasterPasswordValid,
     getValidationHint,
     getKeyword,
@@ -123,7 +127,6 @@ const model = (function () {
     incrementPasswordLength,
     decrementPasswordLength,
     getGeneratedPassword,
-    copyToClipboard,
     save
   }
 })()
