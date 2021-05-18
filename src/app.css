@@ -25,9 +25,6 @@ input[type=number] {
 }
 
 .has-guide:focus-within > .guide {
-  @apply block mt-1;
-}
-
-.has-guide:focus-within {
+  @apply block mt-2;
   @apply border-yellow-500 rounded-md border border-dashed p-2;
 }
