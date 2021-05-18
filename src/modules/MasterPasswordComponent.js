@@ -49,6 +49,7 @@ function MasterPasswordComponent (initialVnode) {
 
   return {
     view: (vnode) => {
+      const empty = vnode.attrs.value.length === 0
       return (
         <div class='has-guide'>
           <div class='mt-1 flex rounded-md shadow-sm'>
@@ -59,12 +60,13 @@ function MasterPasswordComponent (initialVnode) {
               type='text'
               name='master-password'
               id='master-password'
-              class={`${classes(vnode.attrs.empty, vnode.attrs.valid)} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
+              class={`${classes(empty, vnode.attrs.valid)} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
               oninput={e => vnode.attrs.setter(e.target.value)}
+              value={vnode.attrs.value}
             />
           </div>
           <div class='guide justify-start mt-1 mx-2 p-1'>
-            <ValidationMessage empty={vnode.attrs.empty} valid={vnode.attrs.valid} validationHint={vnode.attrs.validationHint} />
+            <ValidationMessage empty={empty} valid={vnode.attrs.valid} validationHint={vnode.attrs.validationHint} />
             <div tabindex='0' class='text-gray-500 text-sm'>
               Your master password must contain at least one lowercase letter, one uppercase letter, one number and one symbol
             </div>
