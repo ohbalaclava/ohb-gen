@@ -44,7 +44,7 @@ function LengthComponent (initialVnode) {
         <div class='has-guide'>
           <div class='grid grid-cols-3 items-center mt-1'>
             <label for='length' class='text-sm font-medium text-gray-500 ml-2'>
-              length
+              Length
             </label>
             <div class='flex flex-row h-10 w-32 rounded-md relative'>
               <button

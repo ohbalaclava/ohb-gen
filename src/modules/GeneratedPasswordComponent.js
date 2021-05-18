@@ -66,8 +66,8 @@ function GeneratedPasswordComponent (initialVnode) {
   return {
     view: (vnode) => {
       return (
-        <div>
-          <label for='generated-password' class='text-base font-medium text-gray-900'>
+        <div class='text-center'>
+          <label for='generated-password' class='text-base font-medium text-gray-700'>
             Generated Password
           </label>
           <PasswordDisplayComponent value={vnode.attrs.value} />
