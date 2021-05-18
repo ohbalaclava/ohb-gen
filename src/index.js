@@ -41,13 +41,13 @@ function KhyberPassApp () {
               <hr class='w-full' />
 
               <MasterPasswordComponent
-                empty={model.getMasterPassword().length === 0}
                 valid={model.isMasterPasswordValid()}
                 validationHint={model.getValidationHint()}
                 setter={model.setMasterPassword}
+                value={model.getMasterPassword()}
               />
 
-              <GeneratedPasswordComponent value={model.getGeneratedPassword()} copyFunction={model.copyToClipboard} />
+              <GeneratedPasswordComponent value={model.getGeneratedPassword()} />
             </div>
           </div>
         </div>
