@@ -42,11 +42,11 @@ function LengthComponent (initialVnode) {
     view: (vnode) => {
       return (
         <div class='has-guide'>
-          <div>
-            <label for='length' class='text-base font-medium text-gray-900'>
-              Length
+          <div class='grid grid-cols-3 items-center mt-1'>
+            <label for='length' class='text-sm font-medium text-gray-500 ml-2'>
+              length
             </label>
-            <div class='flex flex-row mt-2 h-10 w-32 rounded-md relative'>
+            <div class='flex flex-row h-10 w-32 rounded-md relative'>
               <button
                 class='z-0 font-semibold inline-flex items-center rounded-l-md border border-r-0 h-full w-20 border-gray-300 hover:bg-gray-100 text-gray-500 bg-gray-200 text-sm focus:outline-none cursor-pointer'
                 onclick={e => _decrement(vnode.attrs.setter)}
