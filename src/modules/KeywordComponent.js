@@ -19,9 +19,9 @@ function KeywordComponent (initialVnode) {
             />
             <datalist id='keywords' />
           </div>
-          <div tabindex='0' class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
+          <span class='guide'>
             The name of the app/site you want to generate a password for. This may be a word, a sentence, a URI, etc. It will be combined with the master password to generate a new unique password for this app/site
-          </div>
+          </span>
         </div>
       )
     }

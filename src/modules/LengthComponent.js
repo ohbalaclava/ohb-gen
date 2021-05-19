@@ -69,9 +69,9 @@ function LengthComponent (initialVnode) {
               </button>
             </div>
           </div>
-          <div tabindex='0' class='guide justify-start mt-1 mx-2 p-1 text-gray-500 text-sm'>
+          <span class='guide'>
             The length of password to generate, upto {MAXIMUM_PASSWORD_LENGTH} characters
-          </div>
+          </span>
         </div>
       )
     }
