@@ -62,6 +62,21 @@ function PasswordDisplayComponent (initialVnode) {
     }
   }
 }
+
+function ResetProgressComponent (initialVnode) {
+  return {
+    view: (vnode) => {
+      if (vnode.attrs.reset) {
+        return (
+          <div class='countdown' style={`--duration: ${parseInt(vnode.attrs.reset, 10) / 1000};`}>
+            <div />
+          </div>
+        )
+      }
+    }
+  }
+}
+
 function GeneratedPasswordComponent (initialVnode) {
   return {
     view: (vnode) => {
@@ -71,6 +86,7 @@ function GeneratedPasswordComponent (initialVnode) {
             Generated Password
           </label>
           <PasswordDisplayComponent value={vnode.attrs.value} />
+          <ResetProgressComponent reset={vnode.attrs.reset} />
         </div>
       )
     }

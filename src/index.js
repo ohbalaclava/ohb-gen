@@ -6,7 +6,6 @@ import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
 import { LegacyComponent } from './modules/LegacyComponent'
 import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent'
-import { NotesComponent } from './modules/NotesComponent'
 import { LengthComponent } from './modules/LengthComponent'
 import { IllegalCharactersComponent } from './modules/IllegalCharactersComponent'
 import { IncludeCharactersComponent } from './modules/IncludeCharactersComponent'
@@ -45,7 +44,7 @@ function KhyberPassApp () {
                 value={model.getMasterPassword()}
               />
 
-              <GeneratedPasswordComponent value={model.getGeneratedPassword()} />
+              <GeneratedPasswordComponent value={model.getGeneratedPassword()} reset={model.getPasswordExpiryTime()} />
             </div>
           </div>
         </div>

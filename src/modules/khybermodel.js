@@ -84,6 +84,10 @@ const model = (function () {
     }
   }
 
+  const getPasswordExpiryTime = () => {
+    return _passwordExpiryTimeoutID ? _PASSWORD_EXPIRY_TIME.toString() : ''
+  }
+
   const _clearPasswords = () => {
     setMasterPassword('')
     _passwordExpiryTimeoutID = null
@@ -93,6 +97,7 @@ const model = (function () {
   const _clearPasswordExpiryTimeout = async () => {
     if (_passwordExpiryTimeoutID) {
       clearTimeout(_passwordExpiryTimeoutID)
+      _passwordExpiryTimeoutID = null
     }
   }
 
@@ -127,6 +132,7 @@ const model = (function () {
     incrementPasswordLength,
     decrementPasswordLength,
     getGeneratedPassword,
+    getPasswordExpiryTime,
     save
   }
 })()

@@ -21,9 +21,30 @@ input[type=number] {
 }
 
 .guide {
-  @apply -z-10 md:max-w-xs absolute transition-opacity duration-1000 opacity-0 text-gray-500 text-sm border-yellow-500 rounded-md border border-dashed p-2 mt-2 bg-gray-100;
+  @apply -z-10 sm:max-w-xs absolute transition-opacity duration-1000 opacity-0 text-gray-500 text-sm border-yellow-500 rounded-md border border-dashed p-2 mt-2 bg-gray-100;
 }
 
 .has-guide:hover > .guide {
   @apply opacity-100  z-50;
+}
+
+/* reset progress bar */
+
+.countdown {
+  margin: 1rem;
+  overflow: hidden;
+}
+.countdown div {
+  height: 5px;
+  animation: countdown calc(var(--duration) * 1s) steps(var(--duration)) forwards;
+  transform-origin: left center;
+  background: linear-gradient(to bottom, red, #900);
+  animation: countdown calc(var(--duration) * 1s) linear forwards;
+}
+
+@keyframes countdown {
+  to {
+    /* More performant than `width` */
+    transform: scaleX(0);
+  }
 }
