@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   output: {
@@ -47,5 +48,15 @@ module.exports = {
     port: 9000,
     open: true
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new FaviconsWebpackPlugin({
+      logo: 'src/chyberpass.png',
+      favicons: {
+        icons: {
+          appleStartup: false
+        }
+      }
+    })
+  ]
 }

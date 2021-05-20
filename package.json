@@ -1,5 +1,5 @@
 {
-    "name": "khyberpass",
+    "name": "chyberpass",
     "version": "0.1.0",
     "description": "Yet another password generator up the jacksie",
     "scripts": {
@@ -27,6 +27,8 @@
         "autoprefixer": "^10.2.5",
         "babel-loader": "^8.2.2",
         "css-loader": "^5.2.4",
+        "favicons": "^6.2.2",
+        "favicons-webpack-plugin": "^5.0.2",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.1",
         "postcss": "^8.2.13",

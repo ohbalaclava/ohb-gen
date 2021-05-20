@@ -1,4 +1,4 @@
-# khyberpass
+# chyberpass
 
 Password generation up the jacksie
 ## License
