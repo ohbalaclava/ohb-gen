@@ -49,7 +49,9 @@ module.exports = {
     open: true
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'chyberpass'
+    }),
     new FaviconsWebpackPlugin({
       logo: 'src/chyberpass.png',
       favicons: {
