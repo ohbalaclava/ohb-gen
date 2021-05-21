@@ -37,10 +37,18 @@ input[type=number] {
 
 .countdown div {
   height: 5px;
-  animation: countdown calc(var(--duration) * 1s) steps(var(--duration)) forwards;
   transform-origin: left center;
   background: linear-gradient(to bottom, red, #900);
   animation: countdown calc(var(--duration) * 1s) linear forwards;
+}
+
+.countdown-empty {
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.countdown-empty div {
+  height: 5px;
 }
 
 @keyframes countdown {

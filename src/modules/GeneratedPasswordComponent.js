@@ -64,11 +64,19 @@ function PasswordDisplayComponent (initialVnode) {
 }
 
 function ResetProgressComponent (initialVnode) {
+  let _hidden = true
   return {
     view: (vnode) => {
       if (vnode.attrs.reset) {
+        _hidden = !_hidden
+        if (_hidden) {
+          Promise.resolve().then(() => {
+            m.redraw()
+          })
+        }
+        const resetTime = parseInt(vnode.attrs.reset, 10) / 1000
         return (
-          <div class='countdown' style={`--duration: ${parseInt(vnode.attrs.reset, 10) / 1000};`}>
+          <div class={`${_hidden ? 'countdown-empty' : 'countdown'}`} style={`--duration: ${resetTime};`}>
             <div />
           </div>
         )
