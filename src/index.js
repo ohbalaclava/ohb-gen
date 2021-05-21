@@ -33,7 +33,7 @@ function KhyberPassApp () {
 
               <LengthComponent setter={model.setPasswordLength} />
 
-              <LegacyComponent setter={model.setLegacy} checked={model.getLegacy()} />
+              <LegacyComponent setter={model.setLegacy} checked={model.getLegacy()} infinite={model.isInfinite()} />
 
               <hr class='w-full' />
 

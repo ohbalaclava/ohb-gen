@@ -13,6 +13,11 @@ const model = (function () {
   let _validationHint = ''
   let _passwordExpiryTimeoutID = null
 
+  const _isInfinite = window.location.hostname.split('.')[0] === 'infinite'
+  if (_isInfinite) {
+    _data.legacy = true
+  }
+
   const getMasterPassword = () => _data.masterPassword
 
   const setMasterPassword = masterPassword => {
@@ -108,6 +113,8 @@ const model = (function () {
 
   const _updatePassword = () => _isValidPassword && _generatePassword()
 
+  const isInfinite = () => _isInfinite
+
   const save = () => {}
 
   return {
@@ -133,6 +140,7 @@ const model = (function () {
     decrementPasswordLength,
     getGeneratedPassword,
     getPasswordExpiryTime,
+    isInfinite,
     save
   }
 })()
