@@ -4,7 +4,6 @@ import './app.css'
 import model from './modules/khybermodel'
 import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
-import { LegacyComponent } from './modules/LegacyComponent'
 import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent'
 import { LengthComponent } from './modules/LengthComponent'
 import { IllegalCharactersComponent } from './modules/IllegalCharactersComponent'
@@ -38,8 +37,6 @@ function KhyberPassApp () {
               <IllegalCharactersComponent setter={model.setIllegalCharacters} />
 
               <LengthComponent setter={model.setPasswordLength} />
-
-              <LegacyComponent setter={model.setLegacy} checked={model.getLegacy()} infinite={model.isInfinite()} />
 
               <hr class='w-full' />
 
