@@ -18,8 +18,14 @@ function KhyberPassApp () {
       <main>
         <div class='flex items-center h-screen w-full bg-gradient-to-b from-yellow-300 to-red-800'>
           <div class='w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto'>
-            <h1 class='mb-5 text-xl text-yellow-900 font-thin flex justify-center'>ChyberPass</h1>
-            <div class='space-y-4'>
+            <hr class='border-yellow-700 w-full' />
+            <div class='flex flex-row items-center justify-center'>
+              <hr class='border-yellow-700 w-full' />
+              <h1 class='text-lg text-yellow-900 font-medium mx-2'>ChyberPass</h1>
+              <hr class='border-yellow-700 w-full' />
+            </div>
+            <hr class='border-yellow-700 w-full' />
+            <div class='mt-5 space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
               <IncludeCharactersComponent

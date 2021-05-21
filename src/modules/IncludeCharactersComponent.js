@@ -19,7 +19,7 @@ function IncludeCharactersComponent (initialVnode) {
                 />
               </div>
               <div class='ml-3 text-sm'>
-                <label for='numbers' class='font-medium text-gray-700'>numbers</label>
+                <label for='numbers' class='font-medium text-gray-900'>numbers</label>
                 <p class='text-gray-500'>The generated password will contain at least one number.</p>
               </div>
             </div>
@@ -35,7 +35,7 @@ function IncludeCharactersComponent (initialVnode) {
                 />
               </div>
               <div class='ml-3 text-sm'>
-                <label for='symbols' class='font-medium text-gray-700'>symbols</label>
+                <label for='symbols' class='font-medium text-gray-900'>symbols</label>
                 <p class='text-gray-500'>The generated password will contain at least one symbol.</p>
               </div>
             </div>

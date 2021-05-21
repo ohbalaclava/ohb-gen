@@ -15,16 +15,16 @@ input[type=number] {
   -webkit-text-security: disc;
 }
 
-.semi-obscured:hover {
+.semi-obscured:focus, .semi-obscured:hover {
   font-family: inherit;
   -webkit-text-security: none;
 }
 
 .guide {
-  @apply -z-10 sm:max-w-xs absolute transition-opacity duration-1000 opacity-0 text-gray-500 text-sm border-yellow-500 rounded-md border border-dashed p-2 mt-2 bg-gray-100;
+  @apply -z-10 sm:max-w-xs absolute transition-opacity duration-1000 opacity-0 text-gray-700 text-sm border-yellow-500 rounded-md border border-dashed p-2 mt-2 bg-gray-100;
 }
 
-.has-guide:hover > .guide {
+.has-guide:focus-within > .guide {
   @apply opacity-100  z-50;
 }
 
@@ -34,6 +34,7 @@ input[type=number] {
   margin: 1rem;
   overflow: hidden;
 }
+
 .countdown div {
   height: 5px;
   animation: countdown calc(var(--duration) * 1s) steps(var(--duration)) forwards;

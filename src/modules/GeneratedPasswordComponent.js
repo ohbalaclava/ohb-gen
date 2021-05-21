@@ -21,7 +21,7 @@ function PasswordDisplayComponent (initialVnode) {
       if (_showCopiedMessage) {
         return (
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <div id='copied-password' class='bg-gray-700 flex-1 w-full h-7 items-center justify-center inline-flex sm:text-sm border-gray-300 px-3 rounded-md border text-gray-50 text-sm'>
+            <div id='copied-password' class='bg-yellow-700 flex-1 w-full h-7 items-center justify-center inline-flex sm:text-sm border-gray-300 px-3 rounded-md border text-gray-50 text-sm'>
               COPIED
             </div>
           </div>
@@ -29,11 +29,11 @@ function PasswordDisplayComponent (initialVnode) {
       } else if (HAVE_CLIPBOARD_ACCESS) {
         return (
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <div id='generated-password' class='select-none semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-200 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'>
+            <div id='generated-password' class='select-none semi-obscured z-10 focus:ring-yellow-500 focus:border-yellow-500 bg-blue-100 flex-1 w-full sm:text-sm border-gray-300 inline-flex items-center px-3 rounded-l-md border text-gray-500 text-sm'>
               {vnode.attrs.value}
             </div>
             <button
-              class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-200 focus:outline-none cursor-pointer'
+              class='w-6 z-0 transition-colors duration-500 inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 hover:bg-gray-300 focus:outline-none cursor-pointer'
               onclick={e => copyToClipboard(vnode.attrs.value)}
               disabled={vnode.attrs.value.length === 0}
             >
@@ -82,9 +82,13 @@ function GeneratedPasswordComponent (initialVnode) {
     view: (vnode) => {
       return (
         <div class='text-center'>
-          <label for='generated-password' class='text-base font-thin text-yellow-900'>
-            Generated Password
-          </label>
+          <div class='flex flex-row items-center justify-center'>
+            <hr class='border-yellow-900 w-full' />
+            <label for='generated-password' class='text-base font-medium text-yellow-900 mx-2'>
+              Password
+            </label>
+            <hr class='border-yellow-900 w-full' />
+          </div>
           <PasswordDisplayComponent value={vnode.attrs.value} />
           <ResetProgressComponent reset={vnode.attrs.reset} />
         </div>
