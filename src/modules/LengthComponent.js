@@ -43,7 +43,7 @@ function LengthComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='flex items-center justify-evenly mt-1'>
-            <label for='length' class='text-sm font-medium text-gray-900 absolute left-16'>
+            <label for='length' class='text-sm font-medium text-gray-900'>
               Length
             </label>
             <div class='flex h-10 w-32 rounded-md relative'>
