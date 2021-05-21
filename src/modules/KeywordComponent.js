@@ -6,7 +6,7 @@ function KeywordComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <label for='keyword' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
+            <label for='keyword' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-yellow-100 text-gray-500 text-sm'>
               App/Site
             </label>
             <input
