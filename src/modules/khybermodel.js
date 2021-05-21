@@ -16,6 +16,7 @@ const model = (function () {
   const _isInfinite = window.location.hostname.split('.')[0] === 'infinite'
   if (_isInfinite) {
     _data.legacy = true
+    _data.passwordLength = 16
   }
 
   const getMasterPassword = () => _data.masterPassword
