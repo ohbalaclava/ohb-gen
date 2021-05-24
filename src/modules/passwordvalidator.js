@@ -5,8 +5,8 @@ class ValidationError extends Error {
   }
 }
 
-const PasswordValidator = (function () {
-  const MINIMUM_PASSWORD_LENGTH = 10
+function PasswordValidator (minPasswordLength) {
+  minPasswordLength = minPasswordLength || 10
   const PASSWORD_SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
   const PASSWORD_SYMBOLS_RX = new RegExp(`[${PASSWORD_SYMBOLS}]`)
 
@@ -16,19 +16,15 @@ const PasswordValidator = (function () {
     }
   }
 
-  const validate = (password) => {
+  this.validate = (password) => {
     _assert(password !== undefined, 'no value')
     _assert(typeof password === 'string', 'not a string')
-    _assert(password.length >= MINIMUM_PASSWORD_LENGTH, `must have at least ${MINIMUM_PASSWORD_LENGTH} characters`)
+    _assert(password.length >= minPasswordLength, `must have at least ${minPasswordLength} characters`)
     _assert(password.match(/[a-z]/), 'must contain at least one lowercase letter')
     _assert(password.match(/[A-Z]/), 'must contain at least one uppercase letter')
     _assert(password.match(/\d/), 'must contain at least one number')
     _assert(password.match(PASSWORD_SYMBOLS_RX), `must contain at least one symbol from: ${PASSWORD_SYMBOLS}`)
   }
-
-  return {
-    validate
-  }
-}())
+}
 
 export { PasswordValidator, ValidationError }

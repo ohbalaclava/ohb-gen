@@ -18,13 +18,14 @@ const model = (function () {
     _data.legacy = true
     _data.passwordLength = 16
   }
+  const _passwordValidator = new PasswordValidator(_isInfinite ? 10 : 16)
 
   const getMasterPassword = () => _data.masterPassword
 
   const setMasterPassword = masterPassword => {
     _data.masterPassword = masterPassword
     try {
-      PasswordValidator.validate(_data.masterPassword)
+      _passwordValidator.validate(_data.masterPassword)
       _isValidPassword = true
       _validationHint = _VALIDATION_SUCCESS_HINT
       _generatePassword()
