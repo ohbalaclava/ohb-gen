@@ -22,7 +22,7 @@ function ValidationMessage (initialVnode) {
       const isValid = vnode.attrs.valid
       if (!vnode.attrs.empty) {
         return (
-          <div class={`${classes(isValid)} flex items-center`}>
+          <div class={`${classes(isValid)} flex items-center mt-2`}>
             <svg class='inline-flex w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
               {icon(isValid)}
             </svg>
@@ -65,8 +65,8 @@ function MasterPasswordComponent (initialVnode) {
               value={vnode.attrs.value}
             />
           </div>
+          <ValidationMessage empty={empty} valid={vnode.attrs.valid} validationHint={vnode.attrs.validationHint} />
           <span class='guide'>
-            <ValidationMessage empty={empty} valid={vnode.attrs.valid} validationHint={vnode.attrs.validationHint} />
             <div>
               Your master password must contain at least one lowercase letter, one uppercase letter, one number and one symbol
             </div>
