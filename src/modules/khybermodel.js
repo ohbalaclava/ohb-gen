@@ -4,7 +4,7 @@ import { PasswordValidator, ValidationError } from './passwordvalidator'
 const m = require('mithril')
 
 const model = (function () {
-  const _VALIDATION_SUCCESS_HINT = 'password is good'
+  const _VALIDATION_SUCCESS_HINT = 'carry on'
   const _PASSWORD_EXPIRY_TIME = 120000 /* 2 minutes */
 
   const _data = new PasswordGenerator.PasswordMetaData()
