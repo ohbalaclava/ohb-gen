@@ -4,7 +4,7 @@ const MAXIMUM_PASSWORD_LENGTH = 64
 const INITIAL_PASSWORD_LENGTH = 24
 
 function LengthComponent (initialVnode) {
-  let _passwordLengthString = INITIAL_PASSWORD_LENGTH.toString(10)
+  let _passwordLengthString = initialVnode.attrs.initialLength || INITIAL_PASSWORD_LENGTH.toString(10)
 
   function _getParsedLength (length) {
     const parsedLength = parseInt(length, 10)

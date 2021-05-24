@@ -20,7 +20,7 @@ function ValidationMessage (initialVnode) {
   return {
     view: (vnode) => {
       const isValid = vnode.attrs.valid
-      if (!vnode.attrs.empty) {
+      if (!vnode.attrs.empty && vnode.attrs.validationHint) {
         return (
           <div class={`${classes(isValid)} flex items-center mt-2 justify-center`}>
             <svg class='inline-flex w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>

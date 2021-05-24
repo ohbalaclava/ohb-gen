@@ -31,7 +31,7 @@ function KhyberPassApp () {
 
               <IllegalCharactersComponent setter={model.setIllegalCharacters} />
 
-              <LengthComponent setter={model.setPasswordLength} />
+              <LengthComponent setter={model.setPasswordLength} initialLength={model.isInfinite() ? 16 : 24} />
 
               <hr class='w-full' />
 

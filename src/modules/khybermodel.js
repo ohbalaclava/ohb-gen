@@ -18,16 +18,18 @@ const model = (function () {
     _data.legacy = true
     _data.passwordLength = 16
   }
-  const _passwordValidator = new PasswordValidator(_isInfinite ? 10 : 16)
+  const _passwordValidator = new PasswordValidator(16)
 
   const getMasterPassword = () => _data.masterPassword
 
   const setMasterPassword = masterPassword => {
     _data.masterPassword = masterPassword
     try {
-      _passwordValidator.validate(_data.masterPassword)
+      if (!_isInfinite) {
+        _passwordValidator.validate(_data.masterPassword)
+        _validationHint = _VALIDATION_SUCCESS_HINT
+      }
       _isValidPassword = true
-      _validationHint = _VALIDATION_SUCCESS_HINT
       _generatePassword()
     } catch (error) {
       _isValidPassword = false
