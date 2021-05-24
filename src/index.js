@@ -18,7 +18,7 @@ function KhyberPassApp () {
       <main>
         <div class='flex h-screen md:items-center w-full bg-gray-500'>
           <div class='w-full bg-gradient-to-b from-blue-900 to-black md:rounded shadow-lg p-4 md:p-8 md:max-w-md md:mx-auto'>
-            <TitleComponent title='CHYBERPASS' />
+            <TitleComponent title={model.isInfinite() ? 'INFINITE' : 'CHYBERPASS'} />
             <div class='mt-5 space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
