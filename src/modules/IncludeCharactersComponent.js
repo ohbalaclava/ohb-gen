@@ -5,7 +5,7 @@ function IncludeCharactersComponent (initialVnode) {
     view: (vnode) => {
       return (
         <fieldset>
-          <legend class='text-base font-medium text-gray-900'>Include</legend>
+          <legend class='text-base font-bold text-gray-100'>INCLUDE</legend>
           <div class='ml-4 mt-2 space-y-4'>
             <div class='flex items-start'>
               <div class='flex items-center h-5'>
@@ -13,14 +13,14 @@ function IncludeCharactersComponent (initialVnode) {
                   id='numbers'
                   name='numbers'
                   type='checkbox'
-                  class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
+                  class='focus:ring-gray-100 h-4 w-4 text-pink-600 border-pink-600 rounded'
                   checked={vnode.attrs.includeNumbers}
                   oninput={e => vnode.attrs.includeNumbersSetter(e.target.checked)}
                 />
               </div>
               <div class='ml-3 text-sm'>
-                <label for='numbers' class='font-medium text-gray-900'>numbers</label>
-                <p class='text-gray-500'>The generated password will contain at least one number.</p>
+                <label for='numbers' class='font-bold text-gray-100'>NUMBERS</label>
+                <p class='text-gray-200'>The generated password will contain at least one number.</p>
               </div>
             </div>
             <div class='flex items-start'>
@@ -29,14 +29,14 @@ function IncludeCharactersComponent (initialVnode) {
                   id='symbols'
                   name='symbols'
                   type='checkbox'
-                  class='focus:ring-yellow-500 h-4 w-4 text-yellow-500 border-gray-300 rounded'
+                  class='focus:ring-gray-100 h-4 w-4 text-pink-600 border-pink-600 rounded'
                   checked={vnode.attrs.includeSymbols}
                   oninput={e => vnode.attrs.includeSymbolsSetter(e.target.checked)}
                 />
               </div>
               <div class='ml-3 text-sm'>
-                <label for='symbols' class='font-medium text-gray-900'>symbols</label>
-                <p class='text-gray-500'>The generated password will contain at least one symbol.</p>
+                <label for='symbols' class='font-bold text-gray-100'>SYMBOLS</label>
+                <p class='text-gray-200'>The generated password will contain at least one symbol.</p>
               </div>
             </div>
           </div>

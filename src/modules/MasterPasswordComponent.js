@@ -22,11 +22,11 @@ function ValidationMessage (initialVnode) {
       const isValid = vnode.attrs.valid
       if (!vnode.attrs.empty) {
         return (
-          <div class={`${classes(isValid)} flex items-center mt-2`}>
+          <div class={`${classes(isValid)} flex items-center mt-2 justify-center`}>
             <svg class='inline-flex w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
               {icon(isValid)}
             </svg>
-            <span class='font-medium text-sm ml-1'>{vnode.attrs.validationHint}</span>
+            <span class='font-bold text-sm uppercase'>{vnode.attrs.validationHint}</span>
           </div>
         )
       } else {
@@ -53,14 +53,14 @@ function MasterPasswordComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <label for='master-password' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-yellow-100 text-blue-900 text-sm'>
-              Master Password
+            <label for='master-password' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-pink-600 bg-pink-600 text-gray-100 text-sm font-bold'>
+              MASTER PASSWORD
             </label>
             <input
               type='text'
               name='master-password'
               id='master-password'
-              class={`${classes(empty, vnode.attrs.valid)} semi-obscured focus:ring-yellow-500 focus:border-yellow-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300`}
+              class={`${classes(empty, vnode.attrs.valid)} semi-obscured focus:ring-gray-100 focus:border-gray-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-pink-600`}
               oninput={e => vnode.attrs.setter(e.target.value)}
               value={vnode.attrs.value}
             />

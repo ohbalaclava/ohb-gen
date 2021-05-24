@@ -38,7 +38,7 @@ input[type=number] {
 .countdown div {
   height: 5px;
   transform-origin: left center;
-  background: linear-gradient(to bottom, red, #900);
+  background: linear-gradient(to bottom, pink, rgb(255, 0, 128));
   animation: countdown calc(var(--duration) * 1s) linear forwards;
 }
 
