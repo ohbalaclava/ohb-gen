@@ -17,6 +17,7 @@ const model = (function () {
   if (_isInfinite) {
     _data.legacy = true
     _data.passwordLength = 16
+    document.title = 'infinite'
   }
   const _passwordValidator = new PasswordValidator(16)
 
