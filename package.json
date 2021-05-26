@@ -1,6 +1,6 @@
 {
     "name": "chyberpass",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Yet another password generator up the jacksie",
     "scripts": {
         "start": "npm run serve",
