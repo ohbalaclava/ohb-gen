@@ -1,5 +1,3 @@
-import 'tailwindcss'
-import 'text-security/text-security.css'
 import './app.css'
 import voronoi from './modules/voronoibg'
 import model from './modules/khybermodel'
@@ -37,8 +35,7 @@ function KhyberPassApp () {
       <main class="relative">
         <canvas id="voronoiCanvas" class="absolute"></canvas>
         <div class='flex h-screen md:items-center w-full absolute'>
-          <div class='w-full md:rounded shadow-lg p-4 md:p-8 md:max-w-md md:mx-auto'>
-            <TitleComponent title={model.isInfinite() ? 'INFINITE' : 'CHYBERPASS'} />
+          <div class='w-full md:rounded-xl shadow-[0px_-1px_64px_8px_rgba(0,_0,_0,_0.4)] p-4 md:p-8 md:max-w-md md:mx-auto backdrop-blur bg-white/50'>
             <div class='mt-5 space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 

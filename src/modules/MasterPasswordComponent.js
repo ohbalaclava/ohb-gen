@@ -11,9 +11,9 @@ function ValidationMessage (initialVnode) {
 
   const classes = (isValid) => {
     if (isValid) {
-      return 'text-green-500'
+      return 'text-green-700'
     } else {
-      return 'text-red-500'
+      return 'text-red-700'
     }
   }
 
@@ -53,7 +53,7 @@ function MasterPasswordComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <label for='master-password' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-pink-600 bg-pink-600 text-gray-100 text-sm font-bold'>
+            <label for='master-password' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-pink-600 bg-yellow-400 text-gray-900 text-sm font-bold'>
               MASTER PASSWORD
             </label>
             <input

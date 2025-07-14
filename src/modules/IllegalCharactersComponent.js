@@ -6,7 +6,7 @@ function IllegalCharactersComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='mt-1 flex rounded-md shadow-sm'>
-            <label for='contains-not' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-pink-600 bg-pink-600 text-gray-100 text-sm font-bold'>
+            <label for='contains-not' class='inline-flex items-center px-3 rounded-l-md border border-r-0 border-pink-600 bg-yellow-400 text-gray-900 text-sm font-bold'>
               ILLEGAL CHARACTERS
             </label>
             <input

@@ -43,12 +43,12 @@ function LengthComponent (initialVnode) {
       return (
         <div class='has-guide'>
           <div class='flex items-center justify-evenly mt-1'>
-            <label for='length' class='text-sm text-gray-100 font-bold'>
+            <label for='length' class='text-sm text-gray-900 font-bold'>
               LENGTH
             </label>
             <div class='flex h-10 w-32 rounded-md relative'>
               <button
-                class='z-0 font-bold inline-flex items-center rounded-l-md border border-r-0 h-full w-20 border-pink-600 hover:bg-pink-400 text-gray-100 bg-pink-600 text-sm focus:outline-none cursor-pointer'
+                class='z-0 font-bold inline-flex items-center rounded-l-md border border-r-0 h-full w-20 border-pink-600 hover:bg-teal-300 bg-yellow-400 text-gray-900 text-sm focus:outline-none cursor-pointer'
                 onclick={e => _decrement(vnode.attrs.setter)}
               >
                 <span class='m-auto'>-</span>
@@ -62,7 +62,7 @@ function LengthComponent (initialVnode) {
                 class='z-10 text-center w-16 focus:ring-gray-100 focus:border-gray-500 border-pink-600 text-xs md:text-base flex items-center justify-center cursor-default'
               />
               <button
-                class='z-0 font-bold inline-flex items-center rounded-r-md border border-l-0 h-full w-20 border-pink-600 hover:bg-pink-400 text-gray-100 bg-pink-600 text-sm focus:outline-none cursor-pointer'
+                class='z-0 font-bold inline-flex items-center rounded-r-md border border-l-0 h-full w-20 border-pink-600 hover:bg-teal-300 bg-yellow-400 text-gray-900 text-sm focus:outline-none cursor-pointer'
                 onclick={e => _increment(vnode.attrs.setter)}
               >
                 <span class='m-auto'>+</span>
