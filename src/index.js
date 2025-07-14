@@ -4,10 +4,7 @@ import model from './modules/khybermodel'
 import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
 import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent'
-import { LengthComponent } from './modules/LengthComponent'
-import { IllegalCharactersComponent } from './modules/IllegalCharactersComponent'
-import { IncludeCharactersComponent } from './modules/IncludeCharactersComponent'
-import { TitleComponent } from './modules/TitleComponent'
+import { ConfigComponent } from './modules/ConfigComponent'
 
 const m = require('mithril');
 
@@ -39,18 +36,7 @@ function KhyberPassApp () {
             <div class='space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
-              <IncludeCharactersComponent
-                includeNumbers={model.getIncludeNumbers()}
-                includeNumbersSetter={model.setIncludeNumbers}
-                includeSymbols={model.getIncludeSymbols()}
-                includeSymbolsSetter={model.setIncludeSymbols}
-              />
-
-              <IllegalCharactersComponent setter={model.setIllegalCharacters} />
-
-              <LengthComponent setter={model.setPasswordLength} initialLength={model.isInfinite() ? 16 : 24} />
-
-              <hr class='w-full' />
+              <ConfigComponent />
 
               <MasterPasswordComponent
                 valid={model.isMasterPasswordValid()}
