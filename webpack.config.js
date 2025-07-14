@@ -1,7 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+const path = require('path')
+
 module.exports = {
+  entry: './src/index.js',
   output: {
     filename: 'app.js'
   },
@@ -44,7 +47,9 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: './dist',
+    static: {
+      directory: path.join(__dirname, "dist")
+    },
     port: 9000,
     open: true
   },
@@ -53,7 +58,7 @@ module.exports = {
       title: 'chyberpass'
     }),
     new FaviconsWebpackPlugin({
-      logo: 'src/chyberpass.png',
+      logo: './src/chyberpass.png',
       favicons: {
         icons: {
           appleStartup: false
