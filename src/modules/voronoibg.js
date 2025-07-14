@@ -8,6 +8,7 @@ const voronoi = (function () {
 	let bbox, diagram;
 	let margin = 0;
 	let spotColor = new paper.Color('red');
+	let highlightColor = new paper.Color('teal');
 
 	let mousePos, oldSize, sites;
 
@@ -63,7 +64,8 @@ const voronoi = (function () {
 							let v = halfedges[j].getEndpoint();
 							points.push(new paper.Point(v));
 						}
-						createPath(points, sites[i]);
+						let color = (i == l - 1) ? highlightColor : spotColor;
+						createPath(points, sites[i], color);
 					}
 				}
 			}
@@ -100,9 +102,9 @@ const voronoi = (function () {
 		}
 	}
 
-	const createPath = (points, center) => {
+	const createPath = (points, center, color) => {
 		let path = new paper.Path();
-		path.fillColor = spotColor;
+		path.fillColor = color;
 		path.closed = true;
 
 		for (let i = 0, l = points.length; i < l; i++) {
