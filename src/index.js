@@ -1,6 +1,7 @@
-import 'tailwindcss/tailwind.css'
+import 'tailwindcss'
 import 'text-security/text-security.css'
 import './app.css'
+import voronoi from './modules/voronoibg'
 import model from './modules/khybermodel'
 import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
@@ -10,14 +11,33 @@ import { IllegalCharactersComponent } from './modules/IllegalCharactersComponent
 import { IncludeCharactersComponent } from './modules/IncludeCharactersComponent'
 import { TitleComponent } from './modules/TitleComponent'
 
-const m = require('mithril')
+const m = require('mithril');
+
+let canvas;
+
+window.addEventListener("load", (event) => {
+  canvas = document.getElementById('voronoiCanvas');
+  resizeCanvas();
+  voronoi.setup('voronoiCanvas');
+});
+
+window.addEventListener("resize", (event) => {
+  resizeCanvas();
+})
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
 
 function KhyberPassApp () {
   return {
     view: () => (
-      <main>
-        <div class='flex h-screen md:items-center w-full bg-gray-500'>
-          <div class='w-full bg-gradient-to-b from-blue-900 to-black md:rounded shadow-lg p-4 md:p-8 md:max-w-md md:mx-auto'>
+      <main class="relative">
+        <canvas id="voronoiCanvas" class="absolute"></canvas>
+        <div class='flex h-screen md:items-center w-full absolute'>
+          <div class='w-full md:rounded shadow-lg p-4 md:p-8 md:max-w-md md:mx-auto'>
             <TitleComponent title={model.isInfinite() ? 'INFINITE' : 'CHYBERPASS'} />
             <div class='mt-5 space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
