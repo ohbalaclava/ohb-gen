@@ -36,7 +36,7 @@ function KhyberPassApp () {
         <canvas id="voronoiCanvas" class="absolute"></canvas>
         <div class='flex h-screen md:items-center w-full absolute'>
           <div class='w-full md:rounded-xl shadow-[0px_-1px_64px_8px_rgba(0,_0,_0,_0.4)] p-4 md:p-8 md:max-w-md md:mx-auto backdrop-blur bg-white/50'>
-            <div class='mt-5 space-y-4'>
+            <div class='space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
               <IncludeCharactersComponent
