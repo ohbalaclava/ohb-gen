@@ -4,7 +4,8 @@
     "description": "Yet another password generator",
     "scripts": {
         "start": "npm run serve",
-        "serve": "NODE_ENV=development webpack serve --mode development",
+        "serve": "SET NODE_ENV=development & webpack serve --mode development",
+        "prod": "SET NODE_ENV=production & webpack --mode production",
         "build": "NODE_ENV=production webpack --mode production"
     },
     "license": "MIT",
