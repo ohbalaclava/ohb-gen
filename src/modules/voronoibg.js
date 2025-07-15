@@ -18,6 +18,7 @@ const voronoi = (function () {
 
 		paper.view.onResize = onResize;
 		paper.view.onMouseMove = onMouseMove;
+		paper.view.onMouseDown = onMouseDown;
 
 		sites = generateBeeHivePoints(paper.view.size.divide(200), true);
 		oldSize = paper.view.size;
@@ -42,11 +43,12 @@ const voronoi = (function () {
 
 	const onMouseMove = event => {
 		mousePos = event.point;
-		if (event.type == 'mousedown') {
-			sites.push(event.point);
-		}
 		sites[sites.length - 1] = event.point;
 		renderDiagram();
+	}
+
+	const onMouseDown = event => {
+		sites.push(event.point);
 	}
 
 	const renderDiagram = () => {
