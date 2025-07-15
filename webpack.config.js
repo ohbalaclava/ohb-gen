@@ -55,10 +55,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'chyberpass'
+      title: 'ohbgen'
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/chyberpass.png',
+      logo: './src/ohbgen.png',
       favicons: {
         icons: {
           appleStartup: false

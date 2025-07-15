@@ -1,4 +1,4 @@
-# chyberpass
+# ohbgen
 
 Password generation up the jacksie
 ## License

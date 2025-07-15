@@ -1,7 +1,7 @@
 {
-    "name": "chyberpass",
-    "version": "1.1.0",
-    "description": "Yet another password generator up the jacksie",
+    "name": "ohbgen",
+    "version": "1.0.0",
+    "description": "Yet another password generator",
     "scripts": {
         "start": "npm run serve",
         "serve": "SET NODE_ENV=development & webpack serve --mode development",
