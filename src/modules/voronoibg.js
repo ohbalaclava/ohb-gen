@@ -34,10 +34,13 @@ const voronoi = (function () {
 			yt: margin,
 			yb: paper.view.bounds.height - margin
 		};
+
 		for (let i = 0, l = sites.length; i < l; i++) {
 			sites[i] = sites[i].multiply(paper.view.size.divide(oldSize));
 		}
+		
 		oldSize = paper.view.size;
+		
 		renderDiagram();
 	}
 
