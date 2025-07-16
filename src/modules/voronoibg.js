@@ -35,8 +35,9 @@ const voronoi = (function () {
 			yb: paper.view.bounds.height - margin
 		};
 
+		let scaleSize = paper.view.size.divide(oldSize);
 		for (let i = 0, l = sites.length; i < l; i++) {
-			sites[i] = sites[i].multiply(paper.view.size.divide(oldSize));
+			sites[i] = sites[i].multiply(scaleSize);
 		}
 		
 		oldSize = paper.view.size;
