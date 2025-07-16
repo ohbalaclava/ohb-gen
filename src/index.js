@@ -30,8 +30,8 @@ function KhyberPassApp () {
   return {
     view: () => (
       <main class="relative">
-        <canvas id="voronoiCanvas" class="absolute"></canvas>
-        <div class='flex h-screen md:items-center w-full absolute'>
+        <canvas id="voronoiCanvas" class="absolute w-full"></canvas>
+        <div class='flex h-screen items-center w-full absolute'>
           <div class='w-full md:rounded-xl shadow-[0px_-1px_64px_8px_rgba(0,_0,_0,_0.4)] p-4 md:p-8 md:max-w-md md:mx-auto backdrop-blur bg-white/50'>
             <div class='space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
