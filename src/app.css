@@ -61,3 +61,11 @@ input[type=number] {
     transform: scaleX(0);
   }
 }
+
+.no-events {
+  pointer-events: none;
+}
+
+.all-events {
+  pointer-events: auto;
+}
