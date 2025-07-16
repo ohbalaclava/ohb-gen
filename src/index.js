@@ -22,7 +22,10 @@ window.addEventListener("resize", (event) => {
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
+  canvas.style.width = canvas.width + 'px';
+
   canvas.height = window.innerHeight;
+  canvas.style.height = canvas.height + 'px';
 }
 
 
@@ -30,9 +33,9 @@ function KhyberPassApp () {
   return {
     view: () => (
       <main class="relative">
-        <canvas id="voronoiCanvas" class="absolute w-full"></canvas>
-        <div class='flex h-screen items-center w-full absolute'>
-          <div class='w-full md:rounded-xl shadow-[0px_-1px_64px_8px_rgba(0,_0,_0,_0.4)] p-4 md:p-8 md:max-w-md md:mx-auto backdrop-blur bg-white/50'>
+        <canvas id="voronoiCanvas" class="absolute w-full" resize></canvas>
+        <div class='flex h-screen items-center w-full absolute no-events'>
+          <div class='w-full md:rounded-xl shadow-[0px_-1px_64px_8px_rgba(0,_0,_0,_0.4)] p-4 md:p-8 md:max-w-md md:mx-auto backdrop-blur bg-white/50 all-events'>
             <div class='space-y-4'>
               <KeywordComponent setter={model.setKeyword} saveFunction={model.save} />
 
