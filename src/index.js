@@ -29,7 +29,7 @@ function resizeCanvas() {
 }
 
 
-function KhyberPassApp () {
+function OhBGenApp () {
   return {
     view: () => (
       <main class="relative">
@@ -57,4 +57,4 @@ function KhyberPassApp () {
   }
 }
 
-m.mount(document.body, KhyberPassApp)
+m.mount(document.body, OhBGenApp)
