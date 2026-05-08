@@ -21,7 +21,7 @@
         "tailwindcss": "^4.1.11",
         "text-security": "^3.2.1",
         "voronoi": "^1.0.0",
-        "webpack": "^5.99.9"
+        "webpack": "^5.104.1"
     },
     "devDependencies": {
         "@aws-amplify/backend": "^1.16.1",
