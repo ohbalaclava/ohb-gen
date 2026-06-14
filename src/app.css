@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'text-security/text-security.css';
 @plugin "@tailwindcss/forms";
 
 /* Chrome, Safari, Edge, Opera */

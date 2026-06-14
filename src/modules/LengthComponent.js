@@ -1,4 +1,4 @@
-const m = require('mithril')
+import m from 'mithril'
 
 const MAXIMUM_PASSWORD_LENGTH = 64
 const INITIAL_PASSWORD_LENGTH = 24

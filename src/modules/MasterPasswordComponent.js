@@ -1,4 +1,4 @@
-const m = require('mithril')
+import m from 'mithril'
 
 function ValidationMessage (initialVnode) {
   const icon = (isValid) => {

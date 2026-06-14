@@ -1,12 +1,12 @@
 import './app.css'
+import 'text-security/text-security.css'
 import voronoi from './modules/voronoibg'
 import model from './modules/khybermodel'
 import { MasterPasswordComponent } from './modules/MasterPasswordComponent'
 import { KeywordComponent } from './modules/KeywordComponent'
 import { GeneratedPasswordComponent } from './modules/GeneratedPasswordComponent'
 import { ConfigComponent } from './modules/ConfigComponent'
-
-const m = require('mithril');
+import m from 'mithril'
 
 let canvas;
 

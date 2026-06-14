@@ -1,7 +1,7 @@
 import { PasswordGenerator } from './passwordgenerator'
 import { PasswordValidator, ValidationError } from './passwordvalidator'
 
-const m = require('mithril')
+import m from 'mithril'
 
 const model = (function () {
   const _VALIDATION_SUCCESS_HINT = 'boat drinks'

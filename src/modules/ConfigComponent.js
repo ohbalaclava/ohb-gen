@@ -3,7 +3,7 @@ import { LengthComponent } from './LengthComponent'
 import { IllegalCharactersComponent } from './IllegalCharactersComponent'
 import { IncludeCharactersComponent } from './IncludeCharactersComponent'
 
-const m = require('mithril')
+import m from 'mithril'
 
 let _showConfig = false;
 

@@ -1,6 +1,5 @@
 import { paper } from 'paper';
-
-const Voronoi = require('voronoi')
+import Voronoi from 'voronoi'
 
 const voronoi = (function () {
 	let voronoi =  new Voronoi();
