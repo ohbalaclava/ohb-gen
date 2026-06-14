@@ -6,3 +6,7 @@
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/ohb-gen.iml
+/.idea/vcs.xml
