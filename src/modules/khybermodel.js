@@ -13,7 +13,7 @@ const model = (function () {
   let _validationHint = ''
   let _passwordExpiryTimeoutID = null
 
-  const _isInfinite = window.location.hostname.split('.')[0] === 'infinite'
+  const _isInfinite = window.location.hash !== '#plus'
   if (_isInfinite) {
     _data.legacy = true
     _data.passwordLength = 16
